@@ -10,7 +10,7 @@
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
   </head>
   <body>
     <div id="app">
@@ -19,7 +19,6 @@
           <a class="navbar-brand" href="{{ url('/') }}">
             {{ config('app.name', 'Laravel') }}
           </a>
-          <!-- ここら辺のdata-###属性はbootstrapの機能 -->
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -28,27 +27,25 @@
               </ul>
               <ul class="navbar-nav ml-auto">
                 @guest
-                    <li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
-                {{-- ログインしていたらユーザー名とログアウトボタンを表示 --}}
+                  <li>
+                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                  </li>
                 @else
-                    <li class="nav-item dropdown">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            {{ Auth::user()->name }} <span class="caret"></span>
-                        </a>
-
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('logout') }}"
-                               onclick="event.preventDefault();
-                                             document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
-                            </a>
-
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                @csrf
-                            </form>
-                        </div>
-                    </li>
-                    @endguest
+                  <li class="nav-item dropdown">
+                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspphpup="true" aria-expanded="false" v-pre>
+                      {{ Auth::user()->name }}
+                      <span class="caret"></span>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                        {{ __('Logout') }}
+                      </a>
+                      <form id="lotout-form" action="{{ route('logout') }}" method="post" style="display: none;">
+                        @csrf
+                      </form>
+                    </div>
+                  </li>
+                  @endguest
               </ul>
             </div>
         </div>
