@@ -7,7 +7,9 @@
     <div class="row">
       <div class="col-md-8 ms-auto">
         <h2>プロフィール作成</h2>
+        <!-- PHP/Laravel13　課題４ start-->
         <form class="" action="{{ action('Admin\ProfileController@create') }}" method="post">
+          <!-- PHP/Laravel14　課題６ start-->
           @if(count($errors)>0)
             <ul>
               @foreach($errors->all() as $e)
@@ -15,6 +17,7 @@
               @endforeach
             </ul>
           @endif
+          <!-- PHP/Laravel14　課題６ end-->
           <div class="form-group row">
             <label>氏名</label>
             <input class="form-control" type="text" name="name" value="{{ old('name') }}">
@@ -34,6 +37,7 @@
           {{ csrf_field() }}
           <button type="submit" class="btn btn-primary">更新</button>
         </form>
+        <!-- PHP/Laravel13　課題４ end-->
       </div>
     </div>
   </div>

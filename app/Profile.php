@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+// PHP/Laravel14　課題５
 class Profile extends Model
 {
     protected $guarded = array('id');

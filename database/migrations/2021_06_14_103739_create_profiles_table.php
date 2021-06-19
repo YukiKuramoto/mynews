@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
+// PHP/Laravel14　課題４
 class CreateProfilesTable extends Migration
 {
     /**
