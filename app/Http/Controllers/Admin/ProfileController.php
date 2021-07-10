@@ -16,13 +16,6 @@ class ProfileController extends Controller
     return view('admin.profile.create');
   }
 
-  public function index(Request $request)
-  {
-    $id = $request->id;
-    $profile = Profile::find($id);
-    return view('admin.profile.index', ['profile' => $profile]);
-  }
-
   public function create(Request $request)
   {
     // PHP/Laravel 16　課題１
@@ -57,12 +50,15 @@ class ProfileController extends Controller
     $profhis = new ProfHis;
     $profhis->prof_id = $prof_form['id'];
     $profhis->edited_at = Carbon::now();
-    // dd($profhis);
     $profhis->save();
-    // dd($prof);
-    // return redirect('admin/news');
     return redirect()->route('profile.edit' , ['id' => $request->id]);
   }
 
     //
+    // public function index(Request $request)
+    // {
+    //   $id = $request->id;
+    //   $profile = Profile::find($id);
+    //   return view('admin.profile.index', ['profile' => $profile]);
+    // }
 }
