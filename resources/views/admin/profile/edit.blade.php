@@ -7,6 +7,7 @@
   <div class="row">
     <div class="col-md-8 ms-auto">
       <h1>プロフィール編集画面</h1>
+      <!-- PHP/Laravel16　課題３ -->
       <form class="" action="{{ action('Admin\ProfileController@update') }}" method="post">
         @if(count($errors)>0)
           <ul>
@@ -15,7 +16,6 @@
             @endforeach
           </ul>
         @endif
-        <!-- PHP/Laravel14　課題６ end-->
         <div class="form-group row">
           <label>氏名</label>
           <input class="form-control" type="text" name="name" value="{{ $profile->name }}">

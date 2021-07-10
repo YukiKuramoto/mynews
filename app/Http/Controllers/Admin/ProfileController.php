@@ -16,8 +16,16 @@ class ProfileController extends Controller
     return view('admin.profile.create');
   }
 
+  public function index(Request $request)
+  {
+    $id = $request->id;
+    $profile = Profile::find($id);
+    return view('admin.profile.index', ['profile' => $profile]);
+  }
+
   public function create(Request $request)
   {
+    // PHP/Laravel 16　課題１
     $this->validate($request, Profile::$rules);
     $profile = new Profile;
     $forms = $request->all();
@@ -39,6 +47,7 @@ class ProfileController extends Controller
 
   public function update(Request $request)
   {
+    // PHP/Laravel 17　課題１
     $this->Validate($request, Profile::$rules);
     $prof = Profile::find($request->id);
     $prof_form = $request->all();
@@ -51,7 +60,8 @@ class ProfileController extends Controller
     // dd($profhis);
     $profhis->save();
     // dd($prof);
-    return redirect('admin/news');
+    // return redirect('admin/news');
+    return redirect()->route('profile.edit' , ['id' => $request->id]);
   }
 
     //
